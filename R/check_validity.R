@@ -47,7 +47,7 @@
 #' Conduct internal validity check of an NHI.
 #'
 #' \code{nhi_valid} Check whether the format and final check digit of a
-#' New Zealand NHI (National Health Identifier) are correct.
+#' New Zealand NHI (National Health Index number) are correct.
 #'
 #' @param nhi A character variable of the format \code{ZYX1234} (original)
 #' or \code{ZYX00AX} (revised).
