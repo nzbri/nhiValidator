@@ -6,7 +6,6 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/nzbri/nhiValidator/workflows/R-CMD-check/badge.svg)](https://github.com/nzbri/nhiValidator/actions)
-[![R-CMD-check](https://github.com/nzbri/nhiValidator/workflows/R-CMD-check/badge.svg)](https://github.com/nzbri/nhiValidator/actions)
 <!-- badges: end -->
 
 Each person who has contact with the New Zealand health system is issued
