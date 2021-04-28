@@ -1,3 +1,38 @@
+# Check an NHI for being in a correct format.
+#
+# This hidden function checks only one scalar value. See the exported,
+# vector-safe nhi_format() function for documentation.
+#
+.nhi_format <- function(nhi, allow_test_cases = FALSE) {
+
+    if (is.na(nhi)) {
+        return(NA)
+    }
+
+    nhi = toupper(nhi)
+
+    if (allow_test_cases == TRUE) {
+        # allow NHIs that start with Z (reserved for test cases).
+        # Original format is 3 letters excluding O and I, followed by 4 digits.
+        original_pattern = '^[A-HJ-NP-Z]{3}[0-9]{4}$'
+        # Revised format is 3 letters followed by 2 digits followed 2 letters:
+        revised_pattern  = '^[A-HJ-NP-Z]{3}[0-9]{2}[A-HJ-NP-Z]{2}$'
+    } else { # don't allow Z in the first position (most common use case):
+        original_pattern = '^[A-HJ-NP-Y][A-HJ-NP-Z]{2}[0-9]{4}$'
+        revised_pattern  = '^[A-HJ-NP-Y][A-HJ-NP-Z]{2}[0-9]{2}[A-HJ-NP-Z]{2}$'
+    }
+
+    if (grepl(pattern = original_pattern, x = nhi)) {
+        return('original format')
+    }
+
+    if (grepl(pattern = revised_pattern, x = nhi)) {
+        return('revised format')
+    } else {
+        return('invalid format')
+    }
+}
+
 #' Check NHIs for correct format.
 #'
 #' \code{nhi_format} Check whether NHIs have the basic
@@ -28,30 +63,13 @@
 #' @export
 nhi_format <- function(nhi, allow_test_cases = FALSE) {
 
-    if (is.na(nhi)) {
-        return(NA)
+    # allow for more than one value to be processed:
+    n = length(nhi)
+    result = rep(NA, n) # create a same-length vector to return
+
+    for (i in 1:n) {
+        result[i] = .nhi_format(nhi[i], allow_test_cases = allow_test_cases)
     }
 
-    nhi = toupper(nhi)
-
-    if (allow_test_cases == TRUE) {
-        # allow NHIs that start with Z (reserved for test cases).
-        # Original format is 3 letters excluding O and I, followed by 4 digits.
-        original_pattern = '^[A-HJ-NP-Z]{3}[0-9]{4}$'
-        # Revised format is 3 letters followed by 2 digits followed 2 letters:
-        revised_pattern  = '^[A-HJ-NP-Z]{3}[0-9]{2}[A-HJ-NP-Z]{2}$'
-    } else { # don't allow Z in the first position (most common use case):
-        original_pattern = '^[A-HJ-NP-Y][A-HJ-NP-Z]{2}[0-9]{4}$'
-        revised_pattern  = '^[A-HJ-NP-Y][A-HJ-NP-Z]{2}[0-9]{2}[A-HJ-NP-Z]{2}$'
-    }
-
-    if (grepl(pattern = original_pattern, x = nhi)) {
-        return('original format')
-    }
-
-    if (grepl(pattern = revised_pattern, x = nhi)) {
-        return('revised format')
-    } else {
-        return('invalid format')
-    }
+    return(result)
 }

@@ -6,6 +6,13 @@ test_that('check that NA is handled', {
     expect_equal(nhi_format(NA), NA)
 })
 
+test_that('check that single cases and vectors are handled', {
+
+    expect_equal(length(nhi_format('JBX3656')), 1)
+    expect_equal(length(nhi_format(c('JBX3656'))), 1)
+    expect_equal(length(nhi_format(c('JBX3656', 'JBX3657', NA))), 3)
+
+})
 
 test_that('check that lower case is tolerated', {
     expect_equal(nhi_format('JBX3656'), nhi_format('jbx3656'))
@@ -17,6 +24,11 @@ test_that('check some known results', {
     expect_equal(nhi_format('ZZZ00AX', allow_test_cases = TRUE), 'revised format')
     expect_equal(nhi_format('HELLO'), 'invalid format')
     expect_equal(nhi_format(NA), NA)
+
+    # vectorised version of the above:
+    expect_equal(nhi_format(c('JBX3656', 'JBX3657', 'ZZZ00AX', 'HELLO', NA),
+                            allow_test_cases = TRUE),
+                 c('original format', 'original format', 'revised format', 'invalid format', NA))
 })
 
 test_that('check handling cases that start with Z', {

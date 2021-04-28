@@ -1,7 +1,7 @@
 Package: nhiValidator
 Type: Package
 Title: Check the Internal Validity of New Zealand NHI Numbers
-Version: 0.1.0.9000
+Version: 0.1.0.9001
 Authors@R: c(
     person('Michael', 'MacAskill', email = 'michael.macaskill@nzbri.org', 
     role = c('aut', 'cre')))
