@@ -1,5 +1,3 @@
-context('validity checking')
-
 test_that('check internal validity of NHI check digits', {
 
     # this is a valid NHI (not assigned to a real person):

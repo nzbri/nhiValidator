@@ -7,13 +7,13 @@
 \title{nhiValidator: Check the Internal Validity of New Zealand NHI Numbers}
 \description{
 Each person who has contact with the New Zealand health system 
-    is issued a unique 7 character identifier. This can be in one of two 
-    formats: \code{AAANNNC} (three letters, three digits, and a numerical check 
-    digit) or \code{AAANNAC} (three letters, two digits, one letter, and an 
-    alphabetic check character). The unique identification is actually provided 
-    just by the first six characters. The final check digit or character is 
-    calculated as a checksum based on those first six characters. Thus it 
-    provides an internal validity check, to guard against data entry errors.
+    is issued a unique 7 character National Health Index number. This can be 
+    in one of two formats: \code{AAANNNC} (three letters, three digits, and a 
+    numerical check digit) or \code{AAANNAC} (three letters, two digits, one 
+    letter, and an alphabetic check character). The unique identification is 
+    actually provided just by the first six characters. The final check digit 
+    or character is calculated as a checksum based on those first six characters. 
+    Thus it provides an internal validity check, to guard against data entry errors.
     This package contains functions that check for the correct sequence format 
     of letters and characters. It can also calculate what the check digit 
     should be based on the first six characters, and can return whether 

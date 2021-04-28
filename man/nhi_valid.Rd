@@ -21,7 +21,7 @@ matches the calculated value, \code{FALSE} otherwise.
 }
 \description{
 \code{nhi_valid} Check whether the format and final check digit of a
-New Zealand NHI (National Health Identifier) are correct.
+New Zealand NHI (National Health Index number) are correct.
 }
 \examples{
 nhi_valid('JBX3656') # TRUE

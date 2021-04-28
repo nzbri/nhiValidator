@@ -1,4 +1,3 @@
-context('format checking')
 # these tests are only of the sequential format of digits and letters in the NHI.
 # They do not assess the internal validity
 
