@@ -17,7 +17,7 @@ Description: Each person who has contact with the New Zealand health system
     of letters and characters. It can also calculate what the check digit 
     should be based on the first six characters, and can return whether 
     the calculated value matches the entered value.
-License: License: MIT + file LICENSE
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1
