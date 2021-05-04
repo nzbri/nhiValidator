@@ -21,7 +21,8 @@ allowing for the detection of most typographical or other data errors.
 nhiValidator is not available from [CRAN](https://CRAN.R-project.org),
 so you should install it from [GitHub](https://github.com/) (note that
 you need to explicitly refer to the `main` branch in the repository, as
-`install_github()` defaults to attempting to branch called `master`:
+`install_github()` defaults to attempting to access a branch called
+`master`:
 
 ``` r
 # install.packages('devtools')
