@@ -109,6 +109,20 @@ other data error. If, however, you would like to process such values,
 you can override that behaviour by setting the `allow_test_cases = TRUE`
 parameter in either the `nhi_format()` or `nhi_valid()` functions.
 
+## Performance and future development
+
+No further feature development is envisaged but issue reports and pull
+requests are certainly welcome.
+
+The package functions are vectorised only to the extent that they can be
+passed a vector of values and return a corresponding vector of results.
+Under the hood, however, the functions iterate over each entry in the
+vector and process them sequentially. This can lead to slow performance
+when processing a lot of values. If for some reason you need to validate
+a million NHIs, for example, expect to wait for half an hour.
+Performance optimisation is not a priority for the original developer
+but pull requests in that regard will be gratefully received.
+
 ## Licence
 
 This package was developed by [Michael

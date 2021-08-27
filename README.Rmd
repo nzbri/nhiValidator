@@ -108,9 +108,24 @@ you can override that behaviour by setting the
 `allow_test_cases = TRUE` parameter in either the `nhi_format()` or 
 `nhi_valid()` functions.
 
+## Performance and future development
+No further feature development is envisaged but issue reports and pull requests 
+are certainly welcome.
+
+The package functions are vectorised only to the extent that they can be passed 
+a vector of values and return a corresponding vector of results. Under the hood,
+however, the functions iterate over each entry in the vector and process them 
+sequentially. This can lead to slow performance when processing a lot of values. 
+If for some reason you need to validate a million NHIs, for example, expect to 
+wait for half an hour. Performance optimisation is not a priority for the 
+original developer but pull requests in that regard will be gratefully received.
+
 ## Licence
 
-This package was developed by [Michael MacAskill](https://www.nzbri.org/people/macaskill/) at the New Zealand Brain Research Institute. It is released as open-source software under an [MIT licence](https://opensource.org/licenses/MIT). Note the provisions under that licence about warranties and liability.
+This package was developed by [Michael MacAskill](https://www.nzbri.org/people/macaskill/) 
+at the New Zealand Brain Research Institute. It is released as open-source 
+software under an [MIT licence](https://opensource.org/licenses/MIT). Note the 
+provisions under that licence about warranties and liability.
 
 Please report any issues or suggestions using the [Github issues page for this project](https://github.com/nzbri/nhiValidator/issues).
 
